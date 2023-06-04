@@ -1,0 +1,175 @@
+CRUD
+
+1.create ie)insertion
+
+use mybank //your db name
+show dbs
+db.createCollection("bank")
+db.createCollection("customer")
+db.createCollection("loan")
+db.createCollection("account")
+show collections
+
+**************************************************************************************************
+
+i)insertOne
+
+db.bank.insertOne({"id":001,"name":"IOB","branch":"chinayampalayam","location":"coimbatore"})
+
+ii)insertMany
+
+db.bank.insertMany([{"id":002,"name":"SBI","branch":"Ganhipuram","location":"coimbatore"},{"id":003,"name":"Axis","branch":"Avaraikulam","location":"tirunelveli"},{"id":004,"name":"canara","branch":"chitra","location":"coimbatore"}])
+
+iii)find()
+
+db.bank.find()
+
+iv)findOne()
+
+db.bank.findOne({"name":"IOB"})
+                         
+v)updateOne
+
+ db.bank.updateOne({"location":"coimbatore"},{$set:{"location":"madurai"}})
+
+vi)updateMany
+
+ db.bank.updateMany({"location":"coimbatore"},{$set:{"location":"madurai"}})
+
+vii)deleteOne
+
+ db.bank.deleteOne({"location":"madurai"})
+
+viii)deletMany
+
+ db.bank.deleteMany({"location":"madurai"})
+
+ix)bulkInsert insertOne
+
+db.bank.bulkWrite([{insertOne:{"document":{"id":002,"name":"SBI","location":"coimbatore"}}}])
+
+***************************************************************************************************
+
+i)insertOne
+
+db.customer.insertOne({"id":01,"name":"Anu","mobile":9965398489,"address":"south street","location":"Avaraikulam"})
+
+ii)insertMany
+
+db.customer.insertMany([{"id":02,"name":"Gowtham","mobile":9787770474,"address":"Kovil street","location":"kumarapuram"},{"id":03,"name":"priya","mobile":7904093855,"address":"9th street","location":"madhaganeri"},{"id":04,"name":"ram","mobile":9894687489,"address":"ration street","location":"kavalkinaru"}])
+
+iii)find()
+
+db.customer.find()
+
+iv)findOne()
+
+db.customer.findOne({"name":"Gowtham"})
+
+v)updateOne
+
+db.customer.updateOne({"address":"9th street"},{$set:{"address":"7th avenue"}})
+
+vi)updateMany
+
+db.customer.updateMany({"address":"9th street"},{$set:{"address":"Kovil street"}})
+
+vii)deleteOne
+
+db.customer.deleteOne({"address":"Kovil street"});
+
+viii)deleteMany
+
+db.customer.deleteMany({"address":"Kovil street"});
+
+ix)bulkInsert insertone
+
+db.customer.bulkWrite([{insertOne:{"document":{"id":02,"name":"Gowtham","mobile":9787770474,"address":"Kovil street","location":"kumarapuram"}}}])
+
+***************************************************************************************************
+
+
+i)insertOne
+
+db.loan.insertOne({"id":"001","l_name":"business","l_to":"Anu","l_amt":30000})
+
+ii)insertMany
+
+db.loan.insertMany([{"id":"002","l_name":"agricultutre","l_to":"Gowtham","l_amt":10000},{"id":"003","l_name":"studies","l_to":"priya","l_amt":5000},{"id":"004","l_name":"gold","l_to":"ram","l_amt":15000}])
+
+iii)find()
+
+db.loan.find()
+
+iv)findOne()
+
+db.loan.findOne({"l_name":"studies"})
+
+v)updateOne
+
+db.loan.updateOne({"l_amt":10000},{$set:{"l_amt":5000}})
+
+vi)updateMany
+
+db.loan.updateMany({"l_amt":5000},{$set:{"l_amt":8000}})
+
+vii)deleteOne
+
+db.loan.deleteOne({"l_name":"gold"})
+
+viii)deleteMany
+
+db.loan.deleteMany({"l_amt":8000})
+
+ix)bulkinsert insertOne
+
+db.loan.bulkWrite([{insertOne:{"document":{"id":002,"l_name":"agriculture","l_to":"Gowtham","l_amt":1000}}}])
+
+***************************************************************************************************
+
+i)insertOne
+
+db.account.insertOne({"id":001,"acc_type":"savings","balance":"10000"})
+
+ii)insertMany
+
+db.account.insertMany([{"id":002,"acc_type":"current","balance":"5000"},{"id":003,"acc_type":"savings","balance":"11000"},{"id":004,"acc_type":"savings","balance":"9000"}])
+
+iii)find()
+
+db.account.find()
+
+iv)findOne()
+
+db.account.findOne({"acc_type":"current"})
+
+v)updateOne
+
+db.account.updateOne({"acc_type":"current"},{$set:{"acc_type":"savings"}})
+
+vi)updateMany
+
+db.account.updateMany({"acc_type":"savings"},{$set:{"acc_type":"current"}})
+
+vii)deleteOne
+
+db.account.deleteOne({"acc_type":"current"})
+
+viii)deleteMany
+
+db.account.deleteMany({"acc_type":"current"})
+
+ix)bulkInsert insertOne
+
+db.account.bulkWrite([{insertOne:{"document":{"id":002,"acc_type":"current","balance":"5000"}}}])
+
+
+***************************************************************************************************
+
+to drop collection
+
+db.createCollection("branch")
+
+db.branch.drop()
+
+***************************************************************************************************
